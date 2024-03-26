@@ -1,9 +1,9 @@
 # flutter-getx-clean-architecture
+
 A Flutter Clean Architecture Using [GetX](https://github.com/jonataslaw/getx).
 
-## Work Flow
-![alt text](/assets/Clean-Architecture-Flutter-Diagram.png?raw=true)
 ## Project Structure
+
 ```
 |-- lib
     |-- main.dart
@@ -40,5 +40,6 @@ A Flutter Clean Architecture Using [GetX](https://github.com/jonataslaw/getx).
 ```
 
 ## Features
+
 - Integrating Unit Test.
 - Create an easy to use API provider with [GetConnect](https://github.com/jonataslaw/getx#getconnect).
