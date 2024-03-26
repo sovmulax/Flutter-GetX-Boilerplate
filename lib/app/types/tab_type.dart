@@ -6,11 +6,11 @@ extension TabItem on TabType {
   Icon get icon {
     switch (this) {
       case TabType.headline:
-        return Icon(CupertinoIcons.home, size: 25);
+        return const Icon(CupertinoIcons.home, size: 25);
       case TabType.news:
-        return Icon(CupertinoIcons.news, size: 25);
+        return const Icon(CupertinoIcons.news, size: 25);
       case TabType.profile:
-        return Icon(CupertinoIcons.person, size: 25);
+        return const Icon(CupertinoIcons.person, size: 25);
     }
   }
 
