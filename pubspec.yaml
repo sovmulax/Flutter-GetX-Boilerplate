@@ -12,10 +12,15 @@ dependencies:
     sdk: flutter
   get: ^4.6.6
   cupertino_icons: ^1.0.6
+  json_annotation: ^4.8.1
+  flutter_overlay_loader: ^2.0.0
+  get_storage: ^2.1.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  build_runner:
+  json_serializable: ^6.7.1
 
   flutter_lints: ^3.0.0
 
