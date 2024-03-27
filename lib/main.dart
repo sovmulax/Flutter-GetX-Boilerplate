@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'routes/export.dart';
 import 'core/export.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   //await DenpendencyInjection.init();
+  await GetStorage.init();
+  AppSession.init();
 
   runApp(const App());
   //configLoading();
