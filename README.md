@@ -1,10 +1,10 @@
-# flutter-getx-clean-architecture
+# Flutter-GetX-Boilerplate
 
 A Flutter Clean Architecture Using [GetX](https://github.com/jonataslaw/getx).
 
 ## Project Structure
 
-```
+<!-- ```
 |-- lib
     |-- main.dart
     |-- app
@@ -37,9 +37,12 @@ A Flutter Clean Architecture Using [GetX](https://github.com/jonataslaw/getx).
         |-- pages
         |-- views
         |-- app.dart
-```
+``` -->
 
 ## Features
 
-- Integrating Unit Test.
+- Integrating Unit Test (To-do).
+- Models management
 - Create an easy to use API provider with [GetConnect](https://github.com/jonataslaw/getx#getconnect).
+
+### [Sovmulax](https://github.com/sovmulax)
