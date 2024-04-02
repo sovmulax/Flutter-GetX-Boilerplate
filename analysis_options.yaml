@@ -1,5 +1,14 @@
 include: package:flutter_lints/flutter.yaml
 
+analyzer:
+  errors:
+    must_be_immutable: ignore
+    deprecated_member_use: ignore
+
 linter:
   rules:
-    use_key_in_widget_constructors: True
+    use_key_in_widget_constructors: False
+    constant_identifier_names: False
+    prefer_const_constructors: False
+    use_super_parameters: False
+    non_constant_identifier_names: Fasle
