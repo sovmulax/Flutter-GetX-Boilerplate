@@ -1,5 +1,5 @@
 import 'package:get_storage/get_storage.dart';
-import 'package:templax/core/export.dart';
+import 'package:templax/src/exports.dart_exporter.dart';
 
 class AppSession {
   static GetStorage? sessionData;
