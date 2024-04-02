@@ -1,4 +1,3 @@
-// ignore_for_file: use_key_in_widget_constructors, file_names, constant_identifier_names, must_be_immutable
 import 'package:flutter/material.dart';
 import 'package:templax/src/exports.dart_exporter.dart';
 
