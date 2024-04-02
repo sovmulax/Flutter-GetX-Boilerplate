@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:templax/core/export.dart';
+import 'package:templax/src/exports.dart_exporter.dart';
+
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});

@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:templax/core/utils/preferences.dart';
-import 'package:templax/routes/export.dart';
+import 'package:templax/src/exports.dart_exporter.dart';
+
 
 class SplashController extends GetxController {
   @override
