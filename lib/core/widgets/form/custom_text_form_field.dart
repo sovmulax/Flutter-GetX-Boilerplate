@@ -1,8 +1,7 @@
-// ignore_for_file: use_key_in_widget_constructors, file_names, constant_identifier_names
-
+// ignore_for_file: use_key_in_widget_constructors, file_names, constant_identifier_names, must_be_immutable
 import 'package:flutter/material.dart';
-import 'package:templax/core/export.dart';
-//ignore: must_be_immutable
+import 'package:templax/src/exports.dart_exporter.dart';
+
 class CustomTextFormField extends StatelessWidget {
   CustomTextFormField(
       {this.shape,
