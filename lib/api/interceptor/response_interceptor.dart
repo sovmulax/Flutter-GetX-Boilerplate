@@ -3,8 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/request/request.dart';
-import 'package:templax/core/export.dart';
-import 'package:templax/Models/export.dart';
+import 'package:templax/src/exports.dart_exporter.dart';
 
 FutureOr<dynamic> responseInterceptor(
     Request request, Response response) async {

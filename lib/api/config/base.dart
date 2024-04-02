@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:templax/api/export.dart';
+import 'package:templax/src/exports.dart_exporter.dart';
 
 class BaseProvider extends GetConnect {
   @override
