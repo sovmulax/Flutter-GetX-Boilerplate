@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'routes/export.dart';
-import 'core/export.dart';
+import 'package:templax/src/exports.dart_exporter.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
