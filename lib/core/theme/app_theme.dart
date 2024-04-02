@@ -1,23 +1,19 @@
-// ignore_for_file: overridden_fields, annotate_overrides, depend_on_referenced_packages
+// ignore_for_file: overridden_fields, annotate_overrides, depend_on_referenced_packages, non_constant_identifier_names
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-ThemeData lightThemeData(BuildContext context) {
+ThemeData CustomThemeData(BuildContext context) {
   return ThemeData(
-      splashColor: Colors.transparent,
+      splashColor: const Color(0xFF387BF6),
       textSelectionTheme:
           const TextSelectionThemeData(cursorColor: Color(0xffA2A8B5)),
-      primaryColor: const Color(0xff05490a),
-      floatingActionButtonTheme: const FloatingActionButtonThemeData(
-          elevation: 0, foregroundColor: Colors.white),
+      primaryColor: const Color(0xFF387BF6),
       brightness: Brightness.light,
-      dividerColor: const Color(0xff05490a).withOpacity(0.1),
-      focusColor: const Color(0xff05490a),
-      hintColor: const Color(0xff424242),
+      focusColor: const Color(0xFF387BF6),
+      hintColor: const Color(0xFF000000),
       colorScheme: const ColorScheme.light(
-          primary: Color(0xff05490a), secondary: Color(0xff101B49)),
-      textTheme: GoogleFonts.montserratTextTheme(Theme.of(context).textTheme));
+          primary: Color(0xFF387BF6), secondary: Color(0xFF8BAEEF)));
 }
 
 abstract class AppTheme {
@@ -35,35 +31,43 @@ abstract class AppTheme {
 
   String get title1Family => typography.title1Family;
   TextStyle get title1 => typography.title1;
+
   String get title2Family => typography.title2Family;
   TextStyle get title2 => typography.title2;
+
   String get title3Family => typography.title3Family;
   TextStyle get title3 => typography.title3;
+
   String get subtitle1Family => typography.subtitle1Family;
   TextStyle get subtitle1 => typography.subtitle1;
+
   String get subtitle2Family => typography.subtitle2Family;
   TextStyle get subtitle2 => typography.subtitle2;
+
   String get bodyText1Family => typography.bodyText1Family;
   TextStyle get bodyText1 => typography.bodyText1;
+
   String get bodyText2Family => typography.bodyText2Family;
   TextStyle get bodyText2 => typography.bodyText2;
+
+  String get bodyText3Family => typography.bodyText3Family;
+  TextStyle get bodyText3 => typography.bodyText3;
 
   Typography get typography => ThemeTypography(this);
 }
 
 class ColorsTheme extends AppTheme {
-  late Color primaryColor = const Color(0xFF19A54A);
-  late Color secondaryColor = const Color(0xFF888888);
-  late Color tertiaryColor = const Color(0xFF1A1E1E);
+  late Color primaryColor = const Color(0xFF387BF6);
+  late Color secondaryColor = const Color(0xFF8BAEEF);
+  late Color tertiaryColor = const Color(0xFFE4E4E4);
 
-  late Color alternate = const Color(0xFF2D3039);
-  late Color error = const Color(0xFFFF0000);
+  late Color error = const Color(0xFFF13828);
 
-  late Color primaryBackground = const Color(0xFFF9FAFB);
-  late Color secondaryBackground = const Color(0xFFFFFFFF);
+  late Color primaryBackground = const Color(0xFFF5F8FF);
+  late Color secondaryBackground = const Color(0xFFDEE1E9);
 
-  late Color primaryText = const Color(0xFF1A1E1E);
-  late Color secondaryText = const Color(0xFF888888);
+  late Color primaryText = const Color(0xFF000000);
+  late Color secondaryText = const Color(0xFF387BF6);
 }
 
 abstract class Typography {
@@ -81,6 +85,8 @@ abstract class Typography {
   TextStyle get bodyText1;
   String get bodyText2Family;
   TextStyle get bodyText2;
+  String get bodyText3Family;
+  TextStyle get bodyText3;
 }
 
 class ThemeTypography extends Typography {
@@ -88,54 +94,65 @@ class ThemeTypography extends Typography {
 
   final AppTheme theme;
 
-  String get title1Family => 'Poppins';
+  String get title1Family => 'Lato';
   TextStyle get title1 => GoogleFonts.getFont(
-        'Poppins',
-        color: const Color(0xFF1A1E1E),
-        fontWeight: FontWeight.w700,
-        fontSize: 30,
+        'Lato',
+        color: const Color(0xFF000000),
+        fontWeight: FontWeight.bold,
+        fontSize: 40,
       );
-  String get title2Family => 'Poppins';
+
+  String get title2Family => 'Lato';
   TextStyle get title2 => GoogleFonts.getFont(
-        'Poppins',
-        color: const Color(0xFF1A1E1E),
-        fontWeight: FontWeight.w600,
-        fontSize: 25,
+        'Lato',
+        color: const Color(0xFF000000),
+        fontWeight: FontWeight.bold,
+        fontSize: 24,
       );
-  String get title3Family => 'Poppins';
+
+  String get title3Family => 'Lato';
   TextStyle get title3 => GoogleFonts.getFont(
-        'Poppins',
-        color: const Color(0xFF1A1E1E),
-        fontWeight: FontWeight.w500,
-        fontSize: 22,
+        'Lato',
+        color: const Color(0xFF000000),
+        fontWeight: FontWeight.bold,
+        fontSize: 16,
       );
-  String get subtitle1Family => 'Poppins';
+
+  String get subtitle1Family => 'Lato';
   TextStyle get subtitle1 => GoogleFonts.getFont(
-        'Poppins',
-        color: const Color(0xFF888888),
-        fontWeight: FontWeight.w500,
-        fontSize: 20,
+        'Lato',
+        color: const Color(0xFF387BF6),
+        fontWeight: FontWeight.w300,
+        fontSize: 16,
       );
-  String get subtitle2Family => 'Poppins';
+  String get subtitle2Family => 'Lato';
   TextStyle get subtitle2 => GoogleFonts.getFont(
-        'Poppins',
+        'Lato',
         color: const Color(0xFF888888),
-        fontWeight: FontWeight.normal,
-        fontSize: 18,
+        fontWeight: FontWeight.bold,
+        fontSize: 13,
       );
-  String get bodyText1Family => 'Poppins';
+
+  String get bodyText1Family => 'Lato';
   TextStyle get bodyText1 => GoogleFonts.getFont(
-        'Poppins',
-        color: const Color(0xFF1A1E1E),
+        'Lato',
+        color: const Color(0xFFFFFFFF),
         fontWeight: FontWeight.normal,
         fontSize: 16,
       );
-  String get bodyText2Family => 'Poppins';
+  String get bodyText2Family => 'Lato';
   TextStyle get bodyText2 => GoogleFonts.getFont(
-        'Poppins',
-        color: const Color(0xFF1A1E1E),
+        'Lato',
+        color: const Color(0xFFFFFFFF),
         fontWeight: FontWeight.normal,
         fontSize: 16,
+      );
+  String get bodyText3Family => 'Lato';
+  TextStyle get bodyText3 => GoogleFonts.getFont(
+        'Lato',
+        color: const Color(0xFF000000),
+        fontWeight: FontWeight.normal,
+        fontSize: 13,
       );
 }
 

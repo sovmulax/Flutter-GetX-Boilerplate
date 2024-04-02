@@ -28,7 +28,7 @@ class App extends StatelessWidget {
       initialBinding: AppBinding(),
       smartManagement: SmartManagement.keepFactory,
       title: 'Flutter GetX Boilerplate',
-      theme: lightThemeData(context),
+      theme: CustomThemeData(context),
       //locale: TranslationService.locale,
       //fallbackLocale: TranslationService.fallbackLocale,
       //translations: TranslationService(),
