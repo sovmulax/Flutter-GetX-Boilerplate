@@ -23,7 +23,7 @@ class CustomButton extends StatelessWidget {
 
   ButtonVariant? variant;
 
-  ButtonFontStyle? fontStyle;
+  TextStyle? fontStyle;
 
   AlignmentGeometry? alignment;
 
@@ -71,7 +71,7 @@ class CustomButton extends StatelessWidget {
           Text(
             text ?? "",
             textAlign: TextAlign.center,
-            style: _setFontStyle(),
+            style: fontStyle,
           ),
           suffixWidget ?? const SizedBox(),
         ],
@@ -80,7 +80,7 @@ class CustomButton extends StatelessWidget {
       return Text(
         text ?? "",
         textAlign: TextAlign.center,
-        style: _setFontStyle(),
+        style: fontStyle,
       );
     }
   }
@@ -162,7 +162,7 @@ class CustomButton extends StatelessWidget {
       case ButtonVariant.OutlineDeeporange800:
         return null;
       default:
-        return ColorConstant.lightGreen400;
+        return ColorConstant.primaryColor;
     }
   }
 
@@ -239,137 +239,6 @@ class CustomButton extends StatelessWidget {
         );
     }
   }
-
-  _setFontStyle() {
-    switch (fontStyle) {
-      case ButtonFontStyle.GeneralSansMedium939:
-        return TextStyle(
-          color: ColorConstant.blue100,
-          fontSize: getFontSize(
-            9.39,
-          ),
-          fontFamily: 'General Sans',
-          fontWeight: FontWeight.w500,
-        );
-      case ButtonFontStyle.GeneralSansMedium16WhiteA700:
-        return TextStyle(
-          color: ColorConstant.whiteA700,
-          fontSize: getFontSize(
-            16,
-          ),
-          fontFamily: 'General Sans',
-          fontWeight: FontWeight.w500,
-        );
-      case ButtonFontStyle.GeneralSansMedium16IndigoA400:
-        return TextStyle(
-          color: ColorConstant.indigoA400,
-          fontSize: getFontSize(
-            16,
-          ),
-          fontFamily: 'General Sans',
-          fontWeight: FontWeight.w500,
-        );
-      case ButtonFontStyle.GeneralSansMedium12:
-        return TextStyle(
-          color: ColorConstant.blue100,
-          fontSize: getFontSize(
-            12,
-          ),
-          fontFamily: 'General Sans',
-          fontWeight: FontWeight.w500,
-        );
-      case ButtonFontStyle.GeneralSansMedium14:
-        return TextStyle(
-          color: ColorConstant.blueGray900,
-          fontSize: getFontSize(
-            14,
-          ),
-          fontFamily: 'General Sans',
-          fontWeight: FontWeight.w500,
-        );
-      case ButtonFontStyle.GeneralSansMedium14IndigoA400:
-        return TextStyle(
-          color: ColorConstant.indigoA400,
-          fontSize: getFontSize(
-            14,
-          ),
-          fontFamily: 'General Sans',
-          fontWeight: FontWeight.w500,
-        );
-      case ButtonFontStyle.GeneralSansMedium14Bluegray500:
-        return TextStyle(
-          color: ColorConstant.blueGray500,
-          fontSize: getFontSize(
-            14,
-          ),
-          fontFamily: 'General Sans',
-          fontWeight: FontWeight.w500,
-        );
-      case ButtonFontStyle.GeneralSansMedium14Red900:
-        return TextStyle(
-          color: ColorConstant.red900,
-          fontSize: getFontSize(
-            14,
-          ),
-          fontFamily: 'General Sans',
-          fontWeight: FontWeight.w500,
-        );
-      case ButtonFontStyle.GeneralSansMedium16Bluegray500:
-        return TextStyle(
-          color: ColorConstant.blueGray500,
-          fontSize: getFontSize(
-            16,
-          ),
-          fontFamily: 'General Sans',
-          fontWeight: FontWeight.w500,
-        );
-      case ButtonFontStyle.GeneralSansSemibold24:
-        return TextStyle(
-          color: ColorConstant.indigoA400,
-          fontSize: getFontSize(
-            24,
-          ),
-          fontFamily: 'General Sans',
-          fontWeight: FontWeight.w600,
-        );
-      case ButtonFontStyle.GeneralSansRegular14:
-        return TextStyle(
-          color: ColorConstant.blueGray500,
-          fontSize: getFontSize(
-            14,
-          ),
-          fontFamily: 'General Sans',
-          fontWeight: FontWeight.w400,
-        );
-      case ButtonFontStyle.GeneralSansMedium14WhiteA700:
-        return TextStyle(
-          color: ColorConstant.whiteA700,
-          fontSize: getFontSize(
-            14,
-          ),
-          fontFamily: 'General Sans',
-          fontWeight: FontWeight.w500,
-        );
-      case ButtonFontStyle.GeneralSansMedium16Deeporange800:
-        return TextStyle(
-          color: ColorConstant.deepOrange800,
-          fontSize: getFontSize(
-            16,
-          ),
-          fontFamily: 'General Sans',
-          fontWeight: FontWeight.w500,
-        );
-      default:
-        return TextStyle(
-          color: ColorConstant.blueGray900,
-          fontSize: getFontSize(
-            16,
-          ),
-          fontFamily: 'General Sans',
-          fontWeight: FontWeight.w500,
-        );
-    }
-  }
 }
 
 enum ButtonShape {
@@ -402,21 +271,4 @@ enum ButtonVariant {
   FillIndigoA400,
   OutlineGray300,
   OutlineDeeporange800,
-}
-
-enum ButtonFontStyle {
-  GeneralSansMedium16,
-  GeneralSansMedium939,
-  GeneralSansMedium16WhiteA700,
-  GeneralSansMedium16IndigoA400,
-  GeneralSansMedium12,
-  GeneralSansMedium14,
-  GeneralSansMedium14IndigoA400,
-  GeneralSansMedium14Bluegray500,
-  GeneralSansMedium14Red900,
-  GeneralSansMedium16Bluegray500,
-  GeneralSansSemibold24,
-  GeneralSansRegular14,
-  GeneralSansMedium14WhiteA700,
-  GeneralSansMedium16Deeporange800,
 }

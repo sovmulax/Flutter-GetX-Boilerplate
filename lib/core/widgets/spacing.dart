@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:templax/src/exports.dart_exporter.dart';
 
-
 // ignore: must_be_immutable
 class HorizontalSpace extends StatelessWidget {
   double width;
