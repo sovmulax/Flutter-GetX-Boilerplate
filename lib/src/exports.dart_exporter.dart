@@ -1,4 +1,4 @@
-// templax
+// 
 // AUTO GENERATE FILE, DONT MODIFY!!
 // ignored: 
 //.g.dart
@@ -6,11 +6,14 @@
 export 'package:templax/core/constants/session_keys.dart';
 export 'package:templax/core/constants/color_constant.dart';
 export 'package:templax/core/constants/app_constant.dart';
+export 'package:templax/core/utils/helpers.dart';
 export 'package:templax/core/utils/preferences.dart';
 export 'package:templax/core/utils/size_utils.dart';
 export 'package:templax/core/utils/custom_log.dart';
+export 'package:templax/core/utils/custom_image_view.dart';
 export 'package:templax/core/utils/validator.dart';
 export 'package:templax/core/utils/validation_functions.dart';
+export 'package:templax/core/utils/init_instance.dart';
 export 'package:templax/core/utils/init_binding.dart';
 export 'package:templax/core/theme/app_theme.dart';
 export 'package:templax/core/widgets/back_button.dart';
@@ -25,6 +28,7 @@ export 'package:templax/core/widgets/loader.dart';
 export 'package:templax/core/widgets/spacing.dart';
 export 'package:templax/core/widgets/custom_button.dart';
 export 'package:templax/core/widgets/snackbar.dart';
+export 'package:templax/core/widgets/footer.dart';
 export 'package:templax/Models/0x/error_reponse.dart';
 export 'package:templax/Models/0x/selection_popup_model.dart';
 export 'package:templax/Models/auth/req_auth.dart';
