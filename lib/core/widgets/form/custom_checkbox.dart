@@ -34,7 +34,7 @@ class CustomCheckbox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   // bool isDark =Theme.of(context).brightness==Brightness.dark;
+    // bool isDark =Theme.of(context).brightness==Brightness.dark;
     return alignment != null
         ? Align(
             alignment: alignment ?? Alignment.center,
@@ -47,8 +47,8 @@ class CustomCheckbox extends StatelessWidget {
     return Padding(
       padding: padding ?? EdgeInsets.zero,
       child: InkWell(
-      highlightColor: Colors.transparent,
-      splashColor: Colors.transparent,
+        highlightColor: Colors.transparent,
+        splashColor: Colors.transparent,
         onTap: () {
           value = !(value!);
           onChange!(value!);
@@ -64,10 +64,10 @@ class CustomCheckbox extends StatelessWidget {
               shape: _setShape(),
               value: value ?? false,
               side: BorderSide(
-            color: ColorConstant.blueGray500,
-            width: 1,
-          ),
-          activeColor: ColorConstant.indigoA400,
+                color: ColorConstant.blueGray500,
+                width: 1,
+              ),
+              activeColor: ColorConstant.indigoA400,
               onChanged: (value) {
                 onChange!(value!);
               },
@@ -118,7 +118,6 @@ class CustomCheckbox extends StatelessWidget {
     switch (fontStyle) {
       case CheckboxFontStyle.GeneralSansSemiBold14Gray900:
         return TextStyle(
-         
           fontSize: getFontSize(
             14,
           ),
@@ -139,8 +138,7 @@ class CustomCheckbox extends StatelessWidget {
 }
 
 enum CheckboxShape { RoundedBorder4 }
+
 enum CheckboxVariant { OutlineIndigoA20001, OutlineIndigoA10001 }
-enum CheckboxFontStyle {
-  GeneralSansSemiBold14,
-  GeneralSansSemiBold14Gray900
-}
+
+enum CheckboxFontStyle { GeneralSansSemiBold14, GeneralSansSemiBold14Gray900 }

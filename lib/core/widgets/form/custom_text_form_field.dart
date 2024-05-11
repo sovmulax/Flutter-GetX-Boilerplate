@@ -29,7 +29,7 @@ class CustomTextFormField extends StatelessWidget {
 
   TextFormFieldVariant? variant;
 
-  TextFormFieldFontStyle? fontStyle;
+  TextStyle? fontStyle;
 
   Alignment? alignment;
 
@@ -78,16 +78,7 @@ class CustomTextFormField extends StatelessWidget {
       child: TextFormField(
         controller: controller,
         focusNode: focusNode,
-        style: fontStyle == TextFormFieldFontStyle.GeneralSansRegular30
-            ? _setFontStyle()
-            : TextStyle(
-                color: ColorConstant.black900,
-                fontSize: getFontSize(
-                  14,
-                ),
-                fontFamily: 'General Sans',
-                fontWeight: FontWeight.w400,
-              ),
+        style: fontStyle,
         obscureText: isObscureText!,
         textInputAction: textInputAction,
         keyboardType: textInputType,
@@ -101,7 +92,7 @@ class CustomTextFormField extends StatelessWidget {
   _buildDecoration() {
     return InputDecoration(
       hintText: hintText ?? "",
-      hintStyle: _setFontStyle(),
+      hintStyle: fontStyle,
       border: _setBorderStyle(),
       enabledBorder: _setBorderStyle(),
       focusedBorder: _setBorderStyle(),
@@ -115,38 +106,6 @@ class CustomTextFormField extends StatelessWidget {
       isDense: true,
       contentPadding: _setPadding(),
     );
-  }
-
-  _setFontStyle() {
-    switch (fontStyle) {
-      case TextFormFieldFontStyle.GeneralSansMedium14:
-        return TextStyle(
-          color: ColorConstant.red900,
-          fontSize: getFontSize(
-            14,
-          ),
-          fontFamily: 'General Sans',
-          fontWeight: FontWeight.w500,
-        );
-      case TextFormFieldFontStyle.GeneralSansRegular30:
-        return TextStyle(
-          color: ColorConstant.whiteA700,
-          fontSize: getFontSize(
-            30,
-          ),
-          fontFamily: 'General Sans',
-          fontWeight: FontWeight.w500,
-        );
-      default:
-        return TextStyle(
-          color: ColorConstant.blueGray500,
-          fontSize: getFontSize(
-            14,
-          ),
-          fontFamily: 'General Sans',
-          fontWeight: FontWeight.w400,
-        );
-    }
   }
 
   _setOutlineBorderRadius() {
@@ -255,10 +214,4 @@ enum TextFormFieldPadding {
 enum TextFormFieldVariant {
   None,
   FillWhiteA700,
-}
-
-enum TextFormFieldFontStyle {
-  GeneralSansRegular14,
-  GeneralSansMedium14,
-  GeneralSansRegular30,
 }

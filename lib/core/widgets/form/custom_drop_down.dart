@@ -27,7 +27,7 @@ class CustomDropDown extends StatelessWidget {
 
   DropDownVariant? variant;
 
-  DropDownFontStyle? fontStyle;
+  TextStyle? fontStyle;
 
   Alignment? alignment;
 
@@ -69,7 +69,7 @@ class CustomDropDown extends StatelessWidget {
         focusNode: focusNode,
         value: value,
         icon: icon,
-        style: _setFontStyle(),
+        style: fontStyle,
         decoration: _buildDecoration(),
         items: items?.map((SelectionPopupModel item) {
           return DropdownMenuItem<SelectionPopupModel>(
@@ -91,7 +91,7 @@ class CustomDropDown extends StatelessWidget {
   _buildDecoration() {
     return InputDecoration(
       hintText: hintText ?? "",
-      hintStyle: _setFontStyle(),
+      hintStyle: fontStyle,
       border: _setBorderStyle(),
       focusedBorder: _setBorderStyle(),
       prefixIcon: prefix,
@@ -101,38 +101,6 @@ class CustomDropDown extends StatelessWidget {
       isDense: true,
       contentPadding: _setPadding(),
     );
-  }
-
-  _setFontStyle() {
-    switch (fontStyle) {
-      case DropDownFontStyle.GeneralSansRegular14:
-        return TextStyle(
-          color: ColorConstant.blueGray500,
-          fontSize: getFontSize(
-            14,
-          ),
-          fontFamily: 'General Sans',
-          fontWeight: FontWeight.w400,
-        );
-      case DropDownFontStyle.GeneralSansMedium14Bluegray900:
-        return TextStyle(
-          color: ColorConstant.blueGray900,
-          fontSize: getFontSize(
-            14,
-          ),
-          fontFamily: 'General Sans',
-          fontWeight: FontWeight.w500,
-        );
-      default:
-        return TextStyle(
-          color: ColorConstant.indigoA400,
-          fontSize: getFontSize(
-            14,
-          ),
-          fontFamily: 'General Sans',
-          fontWeight: FontWeight.w500,
-        );
-    }
   }
 
   _setOutlineBorderRadius() {
@@ -199,6 +167,13 @@ class CustomDropDown extends StatelessWidget {
           top: 16,
           bottom: 16,
         );
+      case DropDownPadding.PaddingT15:
+        return getPadding(
+          left: 12,
+          top: 15,
+          right: 12,
+          bottom: 15,
+        );
       case DropDownPadding.PaddingT22:
         return getPadding(
           top: 22,
@@ -216,6 +191,7 @@ class CustomDropDown extends StatelessWidget {
 enum DropDownPadding {
   PaddingT1,
   PaddingT16,
+  PaddingT15,
   PaddingT22,
 }
 
