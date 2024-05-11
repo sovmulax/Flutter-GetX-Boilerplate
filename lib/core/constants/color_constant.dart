@@ -2,6 +2,21 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class ColorConstant {
+  //My colors
+  static Color primaryColor = fromHex("387BF6");
+  static Color secondaryColor = fromHex("8BAEEF");
+  static Color tertiaryColor = fromHex("E4E4E4");
+  static Color formColor = fromHex("A7AAB4");
+
+  static Color error = fromHex("F13828");
+
+  static Color primaryBackground = fromHex("F5F8FF");
+  static Color secondaryBackground = fromHex("DEE1E9");
+
+  static Color primaryText = fromHex("000000");
+  static Color secondaryText = fromHex("387BF6");
+
+  //Old color
   static Color red900 = fromHex('#b52510');
 
   static Color indigoA100 = fromHex('#6e8cf9');
