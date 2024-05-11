@@ -29,6 +29,6 @@ void handleErrorStatus(Response response) {
 }
 
 void responseLogger(Response response) {
-  debugPrint('Status Code: ${response.statusCode}\n');
-  debugPrint('Data: ${response.bodyString?.toString() ?? ''}');
+  logInfo('Status Code: ${response.statusCode}\n');
+  logInfo('Data: ${response.bodyString?.toString() ?? ''}');
 }

@@ -1,3 +1,5 @@
 class ApiConstants {
-  static const baseUrl = 'https://sovmulax.me/v1/';
+  static const baseUrl = 'https://google.com/';
+  static const String loginUrl = "${baseUrl}api/token/";
+  static const String registerUrl = "${baseUrl}api/register/";
 }
