@@ -4,6 +4,8 @@ analyzer:
   errors:
     must_be_immutable: ignore
     deprecated_member_use: ignore
+    unused_import: ignore
+    unused_local_variable: ignore
 
 linter:
   rules:
@@ -11,4 +13,12 @@ linter:
     constant_identifier_names: False
     prefer_const_constructors: False
     use_super_parameters: False
-    non_constant_identifier_names: Fasle
+    non_constant_identifier_names: False
+    unnecessary_overrides: False
+    annotate_overrides: False
+    overridden_fields: False
+    sized_box_for_whitespace: False
+    depend_on_referenced_packages: False
+    avoid_print: False
+    file_names: False
+    prefer_const_literals_to_create_immutables: False
