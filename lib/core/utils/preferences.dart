@@ -42,6 +42,14 @@ class AppSession {
     introScreenData!.write(UserSessionDetail.kIsIntroScreenDone, isDone);
   }
 
+  static bool isAlreadyDone() {
+    return introScreenData!.read(UserSessionDetail.kIsAlreadyDone) ?? false;
+  }
+
+  static setIsAlreadyDone(bool isDone) {
+    introScreenData!.write(UserSessionDetail.kIsAlreadyDone, isDone);
+  }
+
   static Future<void> logoutUser() async {
     AppSession.clearStorage();
     AppSession.init();
@@ -50,28 +58,12 @@ class AppSession {
   }
 
   // Set Other data
-  static setIntData(String key, int data) {
-    otherData!.write(key, data);
-  }
-
-  static setBoolData(String key, bool data) {
-    otherData!.write(key, data);
-  }
-
-  static setStringData(String key, String data) {
+  static setData(String key, int data) {
     otherData!.write(key, data);
   }
 
   // Get Other Data
-  static getIntData(String key) {
-    return otherData!.read(key);
-  }
-
-  static getBoolData(String key) {
-    return otherData!.read(key);
-  }
-
-  static getStringData(String key) {
+  static getData(String key) {
     return otherData!.read(key);
   }
 }
