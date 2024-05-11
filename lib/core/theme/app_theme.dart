@@ -21,11 +21,13 @@ abstract class AppTheme {
   late Color secondaryColor;
   late Color tertiaryColor;
   late Color alternate;
+  late Color card;
   late Color error;
   late Color primaryBackground;
   late Color secondaryBackground;
   late Color primaryText;
   late Color secondaryText;
+  late Color formColor;
 
   String get title1Family => typography.title1Family;
   TextStyle get title1 => typography.title1;
@@ -51,6 +53,9 @@ abstract class AppTheme {
   String get bodyText3Family => typography.bodyText3Family;
   TextStyle get bodyText3 => typography.bodyText3;
 
+  String get bodyText4Family => typography.bodyText4Family;
+  TextStyle get bodyText4 => typography.bodyText4;
+
   Typography get typography => ThemeTypography(this);
 }
 
@@ -58,6 +63,8 @@ class ColorsTheme extends AppTheme {
   late Color primaryColor = const Color(0xFF387BF6);
   late Color secondaryColor = const Color(0xFF8BAEEF);
   late Color tertiaryColor = const Color(0xFFE4E4E4);
+  late Color formColor = const Color(0xFFA7AAB4);
+  late Color card = const Color(0xFFE4EDFE);
 
   late Color error = const Color(0xFFF13828);
 
@@ -85,6 +92,8 @@ abstract class Typography {
   TextStyle get bodyText2;
   String get bodyText3Family;
   TextStyle get bodyText3;
+  String get bodyText4Family;
+  TextStyle get bodyText4;
 }
 
 class ThemeTypography extends Typography {
@@ -149,6 +158,13 @@ class ThemeTypography extends Typography {
   TextStyle get bodyText3 => GoogleFonts.getFont(
         'Lato',
         color: const Color(0xFF000000),
+        fontWeight: FontWeight.normal,
+        fontSize: 13,
+      );
+  String get bodyText4Family => 'Lato';
+  TextStyle get bodyText4 => GoogleFonts.getFont(
+        'Lato',
+        color: const Color(0xFFA7AAB4),
         fontWeight: FontWeight.normal,
         fontSize: 13,
       );

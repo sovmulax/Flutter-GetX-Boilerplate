@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:templax/src/exports.dart_exporter.dart';
 
-
 class BackButton extends StatelessWidget {
   Color? color;
   EdgeInsetsGeometry? margin;
