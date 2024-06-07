@@ -5,7 +5,8 @@ class BaseProvider extends GetConnect {
   @override
   void onInit() {
     httpClient.baseUrl = ApiConstants.baseUrl;
-    httpClient.addAuthenticator(authInterceptor);
+    httpClient.defaultContentType = "application/json";
+    httpClient.timeout = Duration(seconds: 8);
     httpClient.addRequestModifier(requestInterceptor);
     httpClient.addResponseModifier(responseInterceptor);
   }
