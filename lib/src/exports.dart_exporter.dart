@@ -37,7 +37,6 @@ export 'package:templax/main.dart';
 export 'package:templax/api/config/base.dart';
 export 'package:templax/api/config/api_endpoints.dart';
 export 'package:templax/api/modules/auth_provider.dart';
-export 'package:templax/api/interceptor/auth_interceptor.dart';
 export 'package:templax/api/interceptor/response_interceptor.dart';
 export 'package:templax/api/interceptor/request_interceptor.dart';
 export 'package:templax/controllers/splash/binding_splash.dart';
