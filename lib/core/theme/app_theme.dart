@@ -1,78 +1,88 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:templax/core/theme/app_text_styles.dart';
+import 'package:templax/core/theme/theme_constants.dart';
 
 ThemeData CustomThemeData(BuildContext context) {
+  final theme = CustomTheme.of(context);
   return ThemeData(
-      splashColor: const Color(0xFF387BF6),
-      textSelectionTheme:
-          const TextSelectionThemeData(cursorColor: Color(0xffA2A8B5)),
-      primaryColor: const Color(0xFF387BF6),
+    primarySwatch: Colors.green,
+    primaryColor: theme.primaryColor,
+    scaffoldBackgroundColor: theme.primaryBackground,
+    appBarTheme: AppBarTheme(
+      backgroundColor: theme.secondaryBackground,
+      foregroundColor: theme.primaryText,
+      elevation: 0,
+    ),
+    colorScheme: ColorScheme.fromSeed(
+      seedColor: theme.primaryColor,
       brightness: Brightness.light,
-      focusColor: const Color(0xFF387BF6),
-      hintColor: const Color(0xFF000000),
-      colorScheme: const ColorScheme.light(
-          primary: Color(0xFF387BF6), secondary: Color(0xFF8BAEEF)));
+    ),
+    useMaterial3: true,
+  );
 }
 
-abstract class AppTheme {
-  static AppTheme of(BuildContext context) => ColorsTheme();
+abstract class CustomTheme {
+  static CustomTheme of(BuildContext context) => ColorsTheme();
 
   late Color primaryColor;
   late Color secondaryColor;
   late Color tertiaryColor;
   late Color alternate;
-  late Color card;
   late Color error;
   late Color primaryBackground;
   late Color secondaryBackground;
   late Color primaryText;
   late Color secondaryText;
-  late Color formColor;
 
-  String get title1Family => typography.title1Family;
-  TextStyle get title1 => typography.title1;
+  // Additional minimalist colors
+  late Color cardBackground;
+  late Color borderColor;
+  late Color shadowColor;
 
-  String get title2Family => typography.title2Family;
-  TextStyle get title2 => typography.title2;
-
-  String get title3Family => typography.title3Family;
-  TextStyle get title3 => typography.title3;
-
-  String get subtitle1Family => typography.subtitle1Family;
-  TextStyle get subtitle1 => typography.subtitle1;
-
-  String get subtitle2Family => typography.subtitle2Family;
-  TextStyle get subtitle2 => typography.subtitle2;
-
-  String get bodyText1Family => typography.bodyText1Family;
-  TextStyle get bodyText1 => typography.bodyText1;
-
-  String get bodyText2Family => typography.bodyText2Family;
-  TextStyle get bodyText2 => typography.bodyText2;
-
-  String get bodyText3Family => typography.bodyText3Family;
-  TextStyle get bodyText3 => typography.bodyText3;
-
-  String get bodyText4Family => typography.bodyText4Family;
-  TextStyle get bodyText4 => typography.bodyText4;
+  // Typography getters using optimized text styles
+  String get title1Family => AppFonts.primary;
+  TextStyle get title1 => AppTextStyles.title1;
+  String get title2Family => AppFonts.primary;
+  TextStyle get title2 => AppTextStyles.title2;
+  String get title3Family => AppFonts.primary;
+  TextStyle get title3 => AppTextStyles.title3;
+  String get subtitle1Family => AppFonts.primary;
+  TextStyle get subtitle1 => AppTextStyles.subtitle1;
+  String get subtitle2Family => AppFonts.primary;
+  TextStyle get subtitle2 => AppTextStyles.subtitle2;
+  String get bodyText1Family => AppFonts.primary;
+  TextStyle get bodyText1 => AppTextStyles.bodyText1;
+  String get bodyText2Family => AppFonts.primary;
+  TextStyle get bodyText2 => AppTextStyles.bodyText2;
 
   Typography get typography => ThemeTypography(this);
 }
 
-class ColorsTheme extends AppTheme {
-  late Color primaryColor = const Color(0xFF387BF6);
-  late Color secondaryColor = const Color(0xFF8BAEEF);
-  late Color tertiaryColor = const Color(0xFFE4E4E4);
-  late Color formColor = const Color(0xFFA7AAB4);
-  late Color card = const Color(0xFFE4EDFE);
-
-  late Color error = const Color(0xFFF13828);
-
-  late Color primaryBackground = const Color(0xFFF5F8FF);
-  late Color secondaryBackground = const Color(0xFFDEE1E9);
-
-  late Color primaryText = const Color(0xFF000000);
-  late Color secondaryText = const Color(0xFF387BF6);
+class ColorsTheme extends CustomTheme {
+  @override
+  Color primaryColor = AppColors.primaryColor;
+  @override
+  Color secondaryColor = AppColors.secondaryColor;
+  @override
+  Color tertiaryColor = AppColors.tertiaryColor;
+  @override
+  Color alternate = AppColors.alternate;
+  @override
+  Color error = AppColors.error;
+  @override
+  Color primaryBackground = AppColors.primaryBackground;
+  @override
+  Color secondaryBackground = AppColors.secondaryBackground;
+  @override
+  Color primaryText = AppColors.primaryText;
+  @override
+  Color secondaryText = AppColors.secondaryText;
+  @override
+  Color cardBackground = AppColors.cardBackground;
+  @override
+  Color borderColor = AppColors.borderColor;
+  @override
+  Color shadowColor = AppColors.shadowColor;
 }
 
 abstract class Typography {
@@ -90,117 +100,90 @@ abstract class Typography {
   TextStyle get bodyText1;
   String get bodyText2Family;
   TextStyle get bodyText2;
-  String get bodyText3Family;
-  TextStyle get bodyText3;
-  String get bodyText4Family;
-  TextStyle get bodyText4;
 }
 
 class ThemeTypography extends Typography {
   ThemeTypography(this.theme);
 
-  final AppTheme theme;
+  final CustomTheme theme;
 
-  String get title1Family => 'Lato';
-  TextStyle get title1 => GoogleFonts.getFont(
-        'Lato',
-        color: const Color(0xFF000000),
-        fontWeight: FontWeight.bold,
-        fontSize: 40,
-      );
+  @override
+  String get title1Family => AppFonts.primary;
+  @override
+  TextStyle get title1 => AppTextStyles.title1;
 
-  String get title2Family => 'Lato';
-  TextStyle get title2 => GoogleFonts.getFont(
-        'Lato',
-        color: const Color(0xFF000000),
-        fontWeight: FontWeight.bold,
-        fontSize: 24,
-      );
+  @override
+  String get title2Family => AppFonts.primary;
+  @override
+  TextStyle get title2 => AppTextStyles.title2;
 
-  String get title3Family => 'Lato';
-  TextStyle get title3 => GoogleFonts.getFont(
-        'Lato',
-        color: const Color(0xFF000000),
-        fontWeight: FontWeight.bold,
-        fontSize: 16,
-      );
+  @override
+  String get title3Family => AppFonts.primary;
+  @override
+  TextStyle get title3 => AppTextStyles.title3;
 
-  String get subtitle1Family => 'Lato';
-  TextStyle get subtitle1 => GoogleFonts.getFont(
-        'Lato',
-        color: const Color(0xFF387BF6),
-        fontWeight: FontWeight.w300,
-        fontSize: 16,
-      );
-  String get subtitle2Family => 'Lato';
-  TextStyle get subtitle2 => GoogleFonts.getFont(
-        'Lato',
-        color: const Color(0xFF888888),
-        fontWeight: FontWeight.bold,
-        fontSize: 13,
-      );
+  @override
+  String get subtitle1Family => AppFonts.primary;
+  @override
+  TextStyle get subtitle1 => AppTextStyles.subtitle1;
 
-  String get bodyText1Family => 'Lato';
-  TextStyle get bodyText1 => GoogleFonts.getFont(
-        'Lato',
-        color: const Color(0xFFFFFFFF),
-        fontWeight: FontWeight.normal,
-        fontSize: 16,
-      );
-  String get bodyText2Family => 'Lato';
-  TextStyle get bodyText2 => GoogleFonts.getFont(
-        'Lato',
-        color: const Color(0xFFFFFFFF),
-        fontWeight: FontWeight.normal,
-        fontSize: 16,
-      );
-  String get bodyText3Family => 'Lato';
-  TextStyle get bodyText3 => GoogleFonts.getFont(
-        'Lato',
-        color: const Color(0xFF000000),
-        fontWeight: FontWeight.normal,
-        fontSize: 13,
-      );
-  String get bodyText4Family => 'Lato';
-  TextStyle get bodyText4 => GoogleFonts.getFont(
-        'Lato',
-        color: const Color(0xFFA7AAB4),
-        fontWeight: FontWeight.normal,
-        fontSize: 13,
-      );
+  @override
+  String get subtitle2Family => AppFonts.primary;
+  @override
+  TextStyle get subtitle2 => AppTextStyles.subtitle2;
+
+  @override
+  String get bodyText1Family => AppFonts.primary;
+  @override
+  TextStyle get bodyText1 => AppTextStyles.bodyText1;
+
+  @override
+  String get bodyText2Family => AppFonts.primary;
+  @override
+  TextStyle get bodyText2 => AppTextStyles.bodyText2;
 }
 
-extension TextStyleHelper on TextStyle {
-  TextStyle override({
-    String? fontFamily,
-    Color? color,
-    double? fontSize,
-    FontWeight? fontWeight,
-    double? letterSpacing,
-    FontStyle? fontStyle,
-    bool useGoogleFonts = true,
-    TextDecoration? decoration,
-    double? lineHeight,
-  }) =>
-      useGoogleFonts
-          ? GoogleFonts.getFont(
-              fontFamily!,
-              color: color ?? this.color,
-              fontSize: fontSize ?? this.fontSize,
-              letterSpacing: letterSpacing ?? this.letterSpacing,
-              fontWeight: fontWeight ?? this.fontWeight,
-              fontStyle: fontStyle ?? this.fontStyle,
-              decoration: decoration,
-              height: lineHeight,
-            )
-          : copyWith(
-              fontFamily: fontFamily,
-              color: color,
-              fontSize: fontSize,
-              letterSpacing: letterSpacing,
-              fontWeight: fontWeight,
-              fontStyle: fontStyle,
-              decoration: decoration,
-              height: lineHeight,
-            );
+/// Enhanced theme utilities
+class AppTheme {
+  /// Get theme instance with context
+  static CustomTheme of(BuildContext context) => CustomTheme.of(context);
+
+  /// Quick access to colors
+  static ColorsTheme get colors => ColorsTheme();
+
+  /// Quick access to text styles
+  static AppTextStyles get textStyles => AppTextStyles();
+
+  /// Minimalist card decoration
+  static BoxDecoration cardDecoration(BuildContext context) {
+    final theme = CustomTheme.of(context);
+    return BoxDecoration(
+      color: theme.cardBackground,
+      borderRadius: BorderRadius.circular(AppBorderRadius.medium),
+      border: Border.all(color: theme.borderColor, width: 1),
+      boxShadow: [
+        BoxShadow(
+          color: theme.shadowColor,
+          offset: const Offset(0, 2),
+          blurRadius: 4,
+          spreadRadius: 0,
+        ),
+      ],
+    );
+  }
+
+  /// Minimalist button decoration
+  static BoxDecoration buttonDecoration(
+    BuildContext context, {
+    bool isPrimary = true,
+  }) {
+    final theme = CustomTheme.of(context);
+    return BoxDecoration(
+      color: isPrimary ? theme.primaryColor : theme.secondaryBackground,
+      borderRadius: BorderRadius.circular(AppBorderRadius.medium),
+      border: isPrimary ? null : Border.all(color: theme.borderColor, width: 1),
+    );
+  }
 }
+
+// Export the optimized text style extension
