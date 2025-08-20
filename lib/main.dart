@@ -7,8 +7,6 @@ import 'package:templax/src/exports.dart_exporter.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  //await DenpendencyInjection.init();
-  //configLoading();
   await GetStorage.init();
   AppSession.init();
   initializeDateFormatting('fr_FR', null).then((_) => runApp(const App()));
@@ -35,10 +33,9 @@ class App extends StatelessWidget {
       ],
       supportedLocales: const [Locale('fr', 'FR')],
       locale: const Locale("fr", "FR"),
-      //getPages: AppPages.routes,
-      //locale: TranslationService.locale,
-      //fallbackLocale: TranslationService.fallbackLocale,
-      //translations: TranslationService(),
+      getPages: AppPages.routes,
+      fallbackLocale: Locale('fr', 'FR'),
+      translations: AppLocalization(),
     );
   }
 }
