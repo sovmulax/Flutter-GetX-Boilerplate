@@ -1,4 +1,4 @@
-// 
+// templax
 // AUTO GENERATE FILE, DONT MODIFY!!
 // ignored: 
 //.g.dart
@@ -15,6 +15,8 @@ export 'package:templax/core/utils/validator.dart';
 export 'package:templax/core/utils/validation_functions.dart';
 export 'package:templax/core/utils/init_instance.dart';
 export 'package:templax/core/utils/init_binding.dart';
+export 'package:templax/core/theme/app_text_styles.dart';
+export 'package:templax/core/theme/theme_constants.dart';
 export 'package:templax/core/theme/app_theme.dart';
 export 'package:templax/core/widgets/back_button.dart';
 export 'package:templax/core/widgets/form/custom_phone_number.dart';
@@ -29,6 +31,10 @@ export 'package:templax/core/widgets/spacing.dart';
 export 'package:templax/core/widgets/custom_button.dart';
 export 'package:templax/core/widgets/snackbar.dart';
 export 'package:templax/core/widgets/footer.dart';
+export 'package:templax/core/localization/langues/fr_translations.dart';
+export 'package:templax/core/localization/langues/en_translations.dart';
+export 'package:templax/core/localization/langues/pt_translations.dart';
+export 'package:templax/core/localization/app_localization.dart';
 export 'package:templax/Models/0x/error_reponse.dart';
 export 'package:templax/Models/0x/selection_popup_model.dart';
 export 'package:templax/Models/auth/req_auth.dart';
