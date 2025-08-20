@@ -5,32 +5,32 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0
 
 environment:
-  sdk: '>=3.3.2 <4.0.0'
+  sdk: ^3.8.1
 
 dependencies:
   flutter:
     sdk: flutter
-  get: ^4.6.6
+  get: ^4.7.2
   cupertino_icons: ^1.0.6
   json_annotation: ^4.8.1
   flutter_overlay_loader: ^2.0.0
   get_storage: ^2.1.1
-  google_fonts: ^6.2.1
+  google_fonts: ^6.3.0
   auto_size_text: ^3.0.0
-  font_awesome_flutter: ^10.7.0
+  font_awesome_flutter: ^10.9.1
   flutter_switch: ^0.3.2
-  country_pickers: ^2.0.0
-  dart_exporter: ^3.0.3
+  country_pickers: ^3.0.1
+  dart_exporter: ^3.0.6
   dart_exporter_annotation: ^2.0.3
-  cached_network_image: ^3.3.1
-  flutter_svg: ^2.0.10+1
+  cached_network_image: ^3.4.1
+  flutter_svg: ^2.2.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  build_runner:
-  json_serializable: ^6.7.1
-  flutter_lints: ^3.0.0
+  build_runner: ^2.5.4
+  json_serializable: ^6.9.0
+  flutter_lints: ^6.0.0
 
 dart_exporter:
   ingore_if_path_matched:
