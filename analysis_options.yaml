@@ -6,6 +6,7 @@ analyzer:
     deprecated_member_use: ignore
     unused_import: ignore
     unused_local_variable: ignore
+    strict_top_level_inference: ignore
 
 linter:
   rules:
