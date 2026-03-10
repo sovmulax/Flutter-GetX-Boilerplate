@@ -16,7 +16,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   flutter_overlay_loader: ^2.0.0
   get_storage: ^2.1.1
-  google_fonts: ^6.3.0
+  google_fonts: ^8.0.2
   auto_size_text: ^3.0.0
   font_awesome_flutter: ^10.9.1
   flutter_switch: ^0.3.2
