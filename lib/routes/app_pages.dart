@@ -10,10 +10,16 @@ class AppPages {
       page: () => SplashScreen(),
       binding: SplashBinding(),
     ),
-    // GetPage(
-    //   name: Routes.auth,
-    //   page: () => AuthScreen(),
-    //   binding: AuthBinding(),
-    // ),
+    GetPage(
+      name: Routes.auth,
+      page: () => const AuthScreen(),
+      binding: AuthBinding(),
+    ),
+    GetPage(
+      name: Routes.profile,
+      page: () => const ProfileScreen(),
+      binding: ProfileBinding(),
+    ),
   ];
 }
+
