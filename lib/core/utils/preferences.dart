@@ -50,6 +50,16 @@ class AppSession {
     introScreenData!.write(UserSessionDetail.kIsAlreadyDone, isDone);
   }
 
+  static void setUserData(UserModel user) {
+    sessionData!.write(UserSessionDetail.kUserData, user.toJson());
+  }
+
+  static UserModel? getUserData() {
+    final data = sessionData?.read(UserSessionDetail.kUserData);
+    if (data != null) return UserModel.fromJson(Map<String, dynamic>.from(data as Map));
+    return null;
+  }
+
   static Future<void> logoutUser() async {
     AppSession.clearStorage();
     AppSession.init();

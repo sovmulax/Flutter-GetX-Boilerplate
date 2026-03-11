@@ -3,4 +3,5 @@ class UserSessionDetail {
   static const String kAccessToken = 'accessToken';
   static const String kIsIntroScreenDone = 'kIsIntroScreenDone';
   static const String kIsAlreadyDone = 'kIsAlreadyDone';
+  static const String kUserData = 'userData';
 }

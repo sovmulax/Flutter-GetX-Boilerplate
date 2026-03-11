@@ -52,3 +52,6 @@ export 'package:templax/views/auth/auth.dart';
 export 'package:templax/views/splash.dart';
 export 'package:templax/routes/app_pages.dart';
 export 'package:templax/core/widgets/space.dart';
+export 'package:templax/controllers/profile/controller_profile.dart';
+export 'package:templax/controllers/profile/binding_profile.dart';
+export 'package:templax/views/profile/profile.dart';
