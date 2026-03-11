@@ -10,12 +10,12 @@ class SplashController extends GetxController {
     await Future.delayed(const Duration(milliseconds: 2000));
     try {
       if (AppSession.isAuthenticationDone()) {
-        Get.toNamed(Routes.spash);
+        Get.offAllNamed(Routes.profile);
       } else {
-        Get.toNamed(Routes.auth);
+        Get.offAllNamed(Routes.auth);
       }
     } catch (e) {
-      Get.toNamed(Routes.auth);
+      Get.offAllNamed(Routes.auth);
     }
   }
 }
