@@ -16,84 +16,93 @@ A Flutter Clean Architecture Using [GetX](https://github.com/jonataslaw/getx).
 |-- lib
     |-- main.dart
     |-- api
-    |   |-- config
-    |   |   |-- api_endpoints.dart
-    |   |   |-- base.dart
-    |   |-- interceptor
-    |   |   |-- request_interceptor.dart
-    |   |   |-- response_interceptor.dart
-    |   |-- modules
-    |       |-- auth_provider.dart
     |-- controllers
-    |   |-- auth
-    |   |   |-- binding_auth.dart
-    |   |   |-- controller_auth.dart
-    |   |-- profile
-    |   |   |-- binding_profile.dart
-    |   |   |-- controller_profile.dart
-    |   |-- splash
-    |       |-- binding_splash.dart
-    |       |-- controller_splash.dart
     |-- core
-    |   |-- constants
-    |   |   |-- app_constant.dart
-    |   |   |-- color_constant.dart
-    |   |   |-- session_keys.dart
-    |   |-- localization
-    |   |   |-- app_localization.dart
-    |   |   |-- langues
-    |   |       |-- en_translations.dart
-    |   |       |-- fr_translations.dart
-    |   |       |-- pt_translations.dart
-    |   |-- theme
-    |   |   |-- app_text_styles.dart
-    |   |   |-- app_theme.dart
-    |   |   |-- theme_constants.dart
-    |   |-- utils
-    |   |   |-- custom_image_view.dart
-    |   |   |-- custom_log.dart
-    |   |   |-- helpers.dart
-    |   |   |-- init_binding.dart
-    |   |   |-- init_instance.dart
-    |   |   |-- preferences.dart
-    |   |   |-- size_utils.dart
-    |   |   |-- validation_functions.dart
-    |   |   |-- validator.dart
-    |   |-- widgets
-    |       |-- back_button.dart
-    |       |-- custom_button.dart
-    |       |-- footer.dart
-    |       |-- loader.dart
-    |       |-- snackbar.dart
-    |       |-- space.dart
-    |       |-- form
-    |           |-- custom_checkbox.dart
-    |           |-- custom_drop_down.dart
-    |           |-- custom_icon_button.dart
-    |           |-- custom_phone_number.dart
-    |           |-- custom_radio_button.dart
-    |           |-- custom_switch.dart
-    |           |-- custom_text_form_field.dart
     |-- Models
-    |   |-- 0x
-    |   |   |-- error_reponse.dart
-    |   |   |-- selection_popup_model.dart
-    |   |-- auth
-    |       |-- req_auth.dart
-    |       |-- req_auth.g.dart
-    |       |-- res_auth.dart
     |-- routes
-    |   |-- app_pages.dart
-    |   |-- app_routes.dart
     |-- src
-    |   |-- exports.dart_exporter.dart
     |-- views
-        |-- splash.dart
-        |-- auth
-        |   |-- auth.dart
-        |-- profile
-            |-- profile.dart
 ```
+
+### `api/`
+
+Couche réseau basée sur **GetConnect**.
+
+| Fichier / Dossier | Rôle |
+|---|---|
+| `config/base.dart` | `BaseProvider` — configure `baseUrl`, timeout et attache les intercepteurs à chaque requête |
+| `config/api_endpoints.dart` | Centralise toutes les URLs (`baseUrl`, `etc...`) |
+| `interceptor/request_interceptor.dart` | Injecte le token Bearer et l'en-tête `X-Requested-With` avant chaque requête |
+| `interceptor/response_interceptor.dart` | Traite et journalise les réponses HTTP |
+| `modules/` | expose les fonctions pour les appels API et retourne les résultats en fonction des models correspondants |
+
+---
+
+### `controllers/`
+
+Logique métier GetX (un controller + un binding par feature).
+
+| Dossier | Fonctions clés |
+|---|---|
+| `auth/` | `AuthController.login()` — valide le formulaire, appelle l'API, stocke le token et redirige vers la page adéquate |
+| `splash/` | `SplashController` — vérifie l'état de session au démarrage et redirige vers la page adéquate |
+
+> Chaque dossier contient un **Binding** (`binding_*.dart`) qui injecte le controller via `Get.lazyPut`.
+
+---
+
+### `core/`
+
+Utilitaires et ressources partagés à travers toute l'application.
+
+| Sous-dossier | Contenu |
+|---|---|
+| `constants/` | `AppConstant` (config globale), `ColorConstant` (palette), `SessionKeys` (clés GetStorage) |
+| `localization/` | `AppLocalization` + traductions FR / EN / etc... |
+| `theme/` | `AppTheme`, `AppTextStyles`, `ThemeConstants` |
+| `utils/` | `AppSession` (gestion token/session), `Validator`, `Helpers`, `SizeUtils`, `CustomLog` |
+| `widgets/` | Composants réutilisables : `CustomButton`, `CustomTextFormField`, `Loader`, `Snackbar`, widgets de formulaire… |
+
+---
+
+### `Models/`
+
+Modèles de données sérialisables (JSON).
+
+| Dossier | Contenu |
+|---|---|
+| `0x/` | `ErrorResponse` (format erreur API), `SelectionPopupModel` (item de liste déroulante) |
+| `auth/` | `AuthRequest` (corps de requête login/register), `UserModel` (réponse utilisateur, avec `req_auth.g.dart` généré par `build_runner`) |
+
+---
+
+### `routes/`
+
+Définition de la navigation GetX.
+
+| Fichier | Rôle |
+|---|---|
+| `app_routes.dart` | Constantes de routes (`Routes.splash`, `Routes.auth`, `Routes.profile`) |
+| `app_pages.dart` | `AppPages.routes` — associe chaque route à sa page et à son binding |
+
+---
+
+### `src/`
+
+| Fichier | Rôle |
+|---|---|
+| `exports.dart_exporter.dart` | Barrel file **auto-généré** — centralise tous les exports du projet pour éviter les imports répétitifs |
+
+---
+
+### `views/`
+
+Couche présentation (UI uniquement, sans logique métier).
+
+| Fichier | Écran |
+|---|---|
+| `splash.dart` | Écran de démarrage avec vérification de session |
+| `auth/auth.dart` | Formulaire de connexion |
 
 ## Features
 
