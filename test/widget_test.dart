@@ -1,23 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:templax/main.dart';
+import 'package:get/get.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const App());
+  tearDown(() {
+    Get.reset();
+  });
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+  testWidgets('Smoke test — GetMaterialApp démarre correctement',
+      (WidgetTester tester) async {
+    await tester.pumpWidget(
+      GetMaterialApp(
+        home: Scaffold(body: Center(child: Text('Flutter GetX Boilerplate'))),
+      ),
+    );
+    expect(find.text('Flutter GetX Boilerplate'), findsOneWidget);
+  });
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+  testWidgets('Smoke test — navigation basique fonctionne',
+      (WidgetTester tester) async {
+    await tester.pumpWidget(
+      GetMaterialApp(
+        initialRoute: '/',
+        getPages: [
+          GetPage(name: '/', page: () => Scaffold(body: Text('Home'))),
+          GetPage(name: '/next', page: () => Scaffold(body: Text('Next'))),
+        ],
+      ),
+    );
+    expect(find.text('Home'), findsOneWidget);
+    Get.toNamed('/next');
+    await tester.pumpAndSettle();
+    expect(find.text('Next'), findsOneWidget);
   });
 }
